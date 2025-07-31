@@ -1,9 +1,14 @@
 services:
   - type: web
-    name: song-recommender
-    env: python
+    name: spotify-recommender
+    runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: streamlit run songrec.py
+    envVars:
+      - key: CLIENT_ID
+        value: "70a9fb89662f4dac8d07321b259eaad7"
+      - key: CLIENT_SECRET
+        value: "4d6710460d764fbbb8d8753dc094d131"
     pythonVersion: 3.10.13
     branch: master
     plan: free
